@@ -10,7 +10,7 @@ interface LoginFormProps {
 const LoginForm = ({ switchToRegister }: LoginFormProps) => {
   const { login } = useAuth()
   const [email, setEmail] = useState('admin@misis.ru')
-  const [password, setPassword] = useState('admin1234')
+  const [password, setPassword] = useState('test_admin_2024')
   const [role, setRole] = useState<Role>('admin')
   const [staySignedIn, setStaySignedIn] = useState(true)
   const [message, setMessage] = useState<string | null>(null)

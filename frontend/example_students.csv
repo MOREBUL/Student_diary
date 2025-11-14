@@ -1,0 +1,5 @@
+firstname,lastname,email,studentId,group,status
+Иван,Петров,ivan.petrov@misis.ru,21БПМ201,БПМ-21-1,active
+Мария,Сидорова,maria.sidorova@misis.ru,21БПМ202,БПМ-21-1,active
+Алексей,Иванов,alexey.ivanov@misis.ru,21БПМ203,БПМ-21-2,active
+

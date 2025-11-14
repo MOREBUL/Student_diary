@@ -1,0 +1,35 @@
+# Секреты и конфиденциальные данные
+.env
+.env.local
+.env.production
+*.key
+*.pem
+secrets/
+config/secrets.json
+
+# Логи
+*.log
+logs/
+
+# Временные файлы
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python (если будет бэкенд)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+

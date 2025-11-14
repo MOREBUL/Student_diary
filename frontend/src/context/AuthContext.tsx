@@ -41,20 +41,22 @@ interface AuthContextValue {
 
 const SESSION_KEY = 'misis.session'
 
+// Тестовые пользователи для разработки
+// ВНИМАНИЕ: В продакшене пароли должны храниться в безопасном хранилище
 const defaultUsers: User[] = [
   {
     id: 'admin-1',
     role: 'admin',
     fullName: 'Администратор МИСИС',
     email: 'admin@misis.ru',
-    password: 'admin1234',
+    password: 'test_admin_2024', // Тестовый пароль - заменить в продакшене
   },
   {
     id: 'student-1',
     role: 'student',
     fullName: 'Анна Лебедева',
     email: 'a.lebedeva@misis.ru',
-    password: 'student123',
+    password: 'test_student_2024', // Тестовый пароль - заменить в продакшене
     group: 'БПМ-21-1',
     studentId: '21БПМ101',
   },
@@ -76,16 +78,29 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   })
 
-  // Обновление имени администратора в существующих данных
+  // Миграция данных: обновление имени и паролей в существующих данных
   useEffect(() => {
     if (!isBrowser) return
-    const adminUser = users.find((u) => u.id === 'admin-1' || u.email === 'admin@misis.ru')
-    if (adminUser && adminUser.fullName.includes('МИСиС')) {
-      setUsers(
-        users.map((u) =>
-          u.id === adminUser.id ? { ...u, fullName: 'Администратор МИСИС' } : u,
-        ),
-      )
+    let updated = false
+    const updatedUsers = users.map((u) => {
+      // Обновление имени администратора
+      if ((u.id === 'admin-1' || u.email === 'admin@misis.ru') && u.fullName.includes('МИСиС')) {
+        updated = true
+        return { ...u, fullName: 'Администратор МИСИС' }
+      }
+      // Обновление паролей на новые тестовые
+      if (u.email === 'admin@misis.ru' && u.password === 'admin1234') {
+        updated = true
+        return { ...u, password: 'test_admin_2024' }
+      }
+      if (u.email === 'a.lebedeva@misis.ru' && u.password === 'student123') {
+        updated = true
+        return { ...u, password: 'test_student_2024' }
+      }
+      return u
+    })
+    if (updated) {
+      setUsers(updatedUsers)
     }
   }, [isBrowser, setUsers, users])
 
