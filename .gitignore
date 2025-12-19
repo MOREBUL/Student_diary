@@ -1,35 +1,17 @@
-# Секреты и конфиденциальные данные
-.env
-.env.local
-.env.production
-*.key
-*.pem
-secrets/
-config/secrets.json
-
-# Логи
-*.log
-logs/
-
-# Временные файлы
-*.tmp
-*.temp
-.DS_Store
-Thumbs.db
-
-# IDE
+.venv/
+venv/
+__pycache__/
+app/__pycache__/
+*.db
+*.sqlite3
+backend/.env
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Python (если будет бэкенд)
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-ENV/
-
+.DS_Store
+Thumbs.db
+.env
+.env.* 
+!.env.example
+*.pyc
+app.db
+alembic/versions/__pycache__/
