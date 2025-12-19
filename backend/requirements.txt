@@ -1,0 +1,11 @@
+fastapi[standard]
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+alembic
+python-dotenv
+passlib[bcrypt]
+python-jose[cryptography]
+pydantic[email]
+scikit-learn
+joblib
